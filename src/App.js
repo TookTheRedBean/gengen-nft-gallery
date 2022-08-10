@@ -5,7 +5,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import CollectionGallery from 'components/CollectionGallery';
 import React from 'react';
-import tokens from './tokens.json'
 
 function App() {
   const theme = createTheme({
@@ -13,6 +12,10 @@ function App() {
       mode: 'dark',
     }
   });
+
+  const allJson = require.context('../../thc-art-engine/build/json/', true)
+  const tokens = allJson('./_metadata.json')
+
   return (
     <Box className="App">
       <ThemeProvider theme={theme}>

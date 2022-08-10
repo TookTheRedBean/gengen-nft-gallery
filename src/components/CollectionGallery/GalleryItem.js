@@ -27,13 +27,18 @@ const GalleryItem = ({ token }) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  // This is annoying because require.context has to accept literal values (can't take a variable, even if it's a constant)
+  // Probably a better way to load these up??
+  const allImages = require.context('../../../../thc-art-engine/build/images/', true)
+  const image = allImages('./' + token.image)
+
   return (
     <Box>
       <SelectableMedia
         key={token.name}
         selected={false}
         title={token.name}
-        imageUrl={token.image}
+        imageUrl={image}
         imageAlt={token.name}
         onSelect={handleOpen}
       />
@@ -52,7 +57,7 @@ const GalleryItem = ({ token }) => {
               <SelectableMedia
                 key={token.name}
                 selected={false}
-                imageUrl={token.image}
+                imageUrl={image}
                 imageAlt={token.name}
               />
             </Box>

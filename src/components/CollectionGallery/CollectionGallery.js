@@ -99,6 +99,8 @@ const CollectionGallery = ({ tokens }) => {
                         <MenuItem value={25}>25</MenuItem>
                         <MenuItem value={50}>50</MenuItem>
                         <MenuItem value={100}>100</MenuItem>
+                        <MenuItem value={1000}>1000</MenuItem>
+                        <MenuItem value={10000}>10000</MenuItem>
                       </Select>
                     </FormControl>
                   </Toolbar>
